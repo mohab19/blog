@@ -8,15 +8,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProjectTasksTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $response = $this->get('/');
+    use RefreshDatabase;
 
-        $response->assertStatus(200);
+    /** @test */
+    public function a_project_can_have_tasks()
+    {
+        
     }
 }
