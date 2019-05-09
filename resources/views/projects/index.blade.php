@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h2>blog</h2>
+@extends('layouts.app')
 
-        <ul>
+@section('content')
+        <header class="flex items-center mb-3 py-4">
+            <div class="flex justify-between items-end w-full">
+                <h3 class="text-grey no-underline">My Projects</h3>
+                <a href="/projects/create" class="button"><i class="fas fa-plus"></i> New Project</a>
+            </div>
+        </header>
+
+        <main class="lg:flex flex-wrap -mx-3">
             @forelse($projects as $project)
-            <li>
-                <a href="{{ $project->path() }}">{{ $project->title }}</a>
-            </li>
+                <div class="lg:w-1/3 px-3 pb-6">
+                    @include('projects.card')
+                </div>
             @empty
-            <li>No Projects Yet!</li>
+            <div class="">
+                No Projects Yet!
+            </div>
             @endforelse
-        </ul>
-    </body>
-</html>
+        </main>
+@endsection

@@ -1,13 +1,44 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h2>{{ $project->title }}</h2>
-        <div class="">
-            {{ $project->description }}
+@extends('layouts.app')
+
+@section('content')
+    <header class="flex items-center mb-3 py-4">
+        <div class="flex justify-between items-end w-full">
+            <p class="text-grey no-underline">
+                <a href="/projects" class="text-grey no-underline">My Projects</a> / {{ $project->title }}
+            </p>
+            <a href="/projects/create" class="button"><i class="fas fa-plus"></i> New Project</a>
         </div>
-    </body>
-</html>
+    </header>
+
+    <main>
+        <div class="lg:flex -mx-3">
+            <div class="lg:w-3/4 px-3 mb-8">
+                <div class="mb-6">
+                    <!-- TASKS GOES HERE -->
+                    <h3 class="text-grey no-underline text-base mb-3">Tasks</h3>
+                    <div class="card mb-3">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                    <div class="card mb-3">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                    <div class="card mb-3">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                    <div class="card">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+
+                <div class="">
+                    <h3 class="text-grey no-underline text-base mb-3">General Notes</h3>
+                    <textarea class="card w-full" style="min-height:200px">Lorem ipsum dolor sit amet.</textarea>
+                </div>
+            </div>
+            <div class="lg:w-1/4 px-3">
+                @include('projects.card')
+            </div>
+        </div>
+    </main>
+
+@endsection
