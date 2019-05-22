@@ -3,6 +3,6 @@
         <a href="{{ $project->path() }}" class="text-black no-underline">{{ $project->title }}</a>
     </h3>
     <div class="text-grey">
-        {{ str_limit($project->description, 100) }}
+        {{ Str::limit($project->description, 100) }}
     </div>
 </div>

@@ -16,18 +16,12 @@
                 <div class="mb-6">
                     <!-- TASKS GOES HERE -->
                     <h3 class="text-grey no-underline text-base mb-3">Tasks</h3>
+
+                    @foreach($project->tasks as $task)
                     <div class="card mb-3">
-                        Lorem ipsum dolor sit amet.
+                        {{ $task->body }}
                     </div>
-                    <div class="card mb-3">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <div class="card mb-3">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                    <div class="card">
-                        Lorem ipsum dolor sit amet.
-                    </div>
+                    @endforeach
                 </div>
 
                 <div class="">
