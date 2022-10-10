@@ -18,7 +18,11 @@ class UserService
     public function register($request)
     {
         $user = $this->user_repository->create($request);
-        return $user->createToken("USER TOKEN")->plainTextToken;
+        return [
+            'user_id'   => $user->id,
+            'user_name' => $user->name,
+            'token'     => $user->createToken("USER TOKEN")->plainTextToken
+        ];
     }
 
     public function login($request)

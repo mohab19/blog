@@ -35,10 +35,10 @@ class AuthController extends Controller
      */
     public function login(UserLoginRequest $request)
     {
-        $token = $this->user_service->login($request);
+        $user = $this->user_service->login($request);
 
         if($token) {
-            return customResponse(['token' => $token], 200, "User Logged in Successfully !");
+            return customResponse(['user' => $user], 200, "User Logged in Successfully !");
         }
 
         return customResponse([], 400, "email or password is incorrect !");
