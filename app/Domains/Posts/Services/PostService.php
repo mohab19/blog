@@ -15,7 +15,17 @@ class PostService
 
     public function get_all()
     {
-        return $this->post_repository->getAll();
+        $posts   = $this->post_repository->getAll();
+        $results = [];
+        foreach ($posts as $key => $post) {
+            $results[] = [
+                'title'            => $post->title,
+                'description'      => $post->description,
+                'publication_date' => $post->publication_date,
+                'user'             => $post->User->name
+            ];
+        }
+        return $results;
     }
 
     public function create($request)

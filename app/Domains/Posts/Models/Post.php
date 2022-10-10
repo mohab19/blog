@@ -5,6 +5,7 @@ namespace App\Domains\Posts\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use App\Domains\Users\Models\User;
 
 class Post extends Model
 {
@@ -28,4 +29,12 @@ class Post extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the user that owns the post.
+     */
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
