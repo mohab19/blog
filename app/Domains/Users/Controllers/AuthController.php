@@ -37,7 +37,7 @@ class AuthController extends Controller
     {
         $user = $this->user_service->login($request);
 
-        if($token) {
+        if($user) {
             return customResponse(['user' => $user], 200, "User Logged in Successfully !");
         }
 
