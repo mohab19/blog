@@ -24,6 +24,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->posts_service->get_all();
+        return customResponse([$posts], 200, "Posts retrieved Successfully !");
     }
 
     /**
