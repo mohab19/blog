@@ -24,8 +24,8 @@ class AuthController extends Controller
      */
     public function register(UserRegisterRequest $request)
     {
-        $token = $this->user_service->register($request->input());
-        return customResponse(['token' => $token], 200, "User Created Successfully !");
+        $user = $this->user_service->register($request->input());
+        return customResponse(['user' => $user], 200, "User Created Successfully !");
     }
 
     /**

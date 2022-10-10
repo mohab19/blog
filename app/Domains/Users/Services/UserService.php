@@ -29,7 +29,11 @@ class UserService
 
         $user = $this->user_repository->findWithEmail($request->email);
 
-        return $user->createToken("USER TOKEN")->plainTextToken;
+        return [
+            'user_id'   => $user->id,
+            'user_name' => $user->name,
+            'token'     => $user->createToken("USER TOKEN")->plainTextToken
+        ];
     }
 
 }
